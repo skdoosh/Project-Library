@@ -8,7 +8,39 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <button class="new-book"></button>
+    <button class="new-book">Add New Book</button>
+    <dialog id="formDialog" closedby="any">
+        <form class="new-book-form" method="dialog">
+            <h2>Add Book Details</h2>
+            <label for="title">
+                Title:
+                <input type="text" id="title" name="title" required />
+            </label>
+            <br>
+            <label for="author">
+                Author:
+                <input type="text" id="author" name="author" required />
+            </label>
+            <br>
+            <label for="pages">
+                Number of Pages:
+                <input type="number" id="pages" name="pages" required />
+            </label>
+            <br>
+            <label for="status">
+                Reading status:
+                <select name="status" id="status">
+                    <option value="true">Read</option>
+                    <option value="false">Not Read</option>
+                </select>
+            </label>
+            <br>
+            <menu>
+                <button type="submit" id="submit-button">Submit</button>
+                <button type="button" class="close">Cancel</button>
+            </menu>
+        </form>
+    </dialog>
     <div class="card-container"></div>
 </body>
 </html>

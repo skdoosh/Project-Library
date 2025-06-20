@@ -39,9 +39,6 @@ addBookToLibrary("The Road", "Cormac McCarthy", 287, false);
 addBookToLibrary("The Book Thief", "Markus Zusak", 552, false);
 addBookToLibrary("Life of Pi", "Yann Martel", 319, false);
 addBookToLibrary("The Giver", "Lois Lowry", 240, false);
-addBookToLibrary("The Alchemist", "Paulo Coelho", 208, false);
-addBookToLibrary("The Maze Runner", "James Dashner", 374, false);
-
 
 function renderLibrary(){
     const cardBox = document.querySelector('.card-container');
@@ -105,3 +102,33 @@ function renderLibrary(){
     })
 }
 
+
+
+const newBook = document.querySelector('.new-book');
+const dialog = document.querySelector('#formDialog');
+
+newBook.addEventListener('click',(e)=>{
+    dialog.showModal();
+})
+
+const closeButton = document.querySelector('.close');
+closeButton.addEventListener('click', (e)=>{
+    dialog.close();
+});
+
+const form = document.querySelector('.new-book-form');
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const title = formData.get('title');
+    const author = formData.get('author');
+    const pages = formData.get('pages');
+    const read = (formData.get('status')==='true');
+
+    addBookToLibrary(title, author, pages, read);
+    dialog.close();
+
+
+
+})
