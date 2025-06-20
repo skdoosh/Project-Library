@@ -1,0 +1,15 @@
+.card-container {
+    display: grid;
+    flex: 1;
+    grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
